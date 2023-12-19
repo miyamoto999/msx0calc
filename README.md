@@ -2,10 +2,13 @@
 
 MSX0 Stack用の電卓です。
 
-font8.dat、font12.dat、font16.datはそのまま、
+font8.dat、font12.dat、font16.dat、strbuf.binはそのまま、
 calc.basはSJIS、CRLFに変換してMSX0に持って行ってください。
 
 ## 変更履歴([詳細](ChangeLog.md))
+### 2023/12/19 v0.2
+- すこし高速化
+
 ### 2023/12/16 v0.1
 - 符号反転がただしく動作していなかったのを改修
 - 演算結果の表示エリアの縦方向を小さくしてボタンを大きくした
