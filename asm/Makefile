@@ -1,22 +1,22 @@
-TARGET=strbuf.bin
-TARGET1=strbuf.tmp
+TARGET=calc.bin
+TARGET_TMP=calc.tmp
+OBJS=calc.o
 LD=z88dk-z80asm
-OBJS=strbuf.o
 AS=z88dk-z80asm
 RM=rm -f
 
 all:$(TARGET)
 
-$(TARGET):$(TARGET1)
-	python mkbsave.py $(TARGET1) $(TARGET)
+$(TARGET):$(TARGET_TMP)
+	python mkbsave.py $(TARGET_TMP) $(TARGET) da00
 	cp -p $(TARGET) ..
 
-$(TARGET1):$(OBJS)
-	$(LD) -b -o=$(TARGET1) -m $(ASCONFIGS) $(OBJS)
+$(TARGET_TMP):$(OBJS)
+	$(LD) -b -o=$(TARGET_TMP) -m $(ASCONFIGS) $(OBJS)
 
 .SUFFIXES: .asm .o
 .asm.o:
 	$(AS) $(ASCONFIGS) $<
 
 clean:
-	$(RM) $(OBJS) $(TARGET) $(TARGET1) *.map
+	$(RM) $(OBJS) $(TARGET) $(TARGET_TMP) *.map

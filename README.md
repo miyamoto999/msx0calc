@@ -2,10 +2,14 @@
 
 MSX0 Stack用の電卓です。
 
-font8.dat、font12.dat、font16.dat、strbuf.binはそのまま、
+font8.dat、font12.dat、font16.dat、calc.binはそのまま、
 calc.basはSJIS、CRLFに変換してMSX0に持って行ってください。
+(前のバージョンにあったstrbuf.binは必要なくなったので削除してください。)
 
 ## 変更履歴([詳細](ChangeLog.md))
+### 2023/12/29 v1.0
+- 高速化
+
 ### 2023/12/19 v0.2
 - すこし高速化
 

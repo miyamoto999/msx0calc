@@ -1,11 +1,10 @@
 import sys
 
-def mkBsaveFile(file_path, new_file_path):
+def mkBsaveFile(file_path, new_file_path, start_addr):
     # ファイルを読み込む
     with open(file_path, 'rb') as file:
         org_data = file.read()
 
-    start_addr = 0xdd00
     end_addr = start_addr + len(org_data) - 1
 
     # bsaveヘッダ
@@ -19,12 +18,13 @@ def mkBsaveFile(file_path, new_file_path):
         file.write(new_data)
 
 if __name__ == "__main__":
-    if len(sys.argv) < 3:
-        print("Usage: python mkbsave.py <file_path> <new_file_path")
+    if len(sys.argv) < 4:
+        print("Usage: python mkbsave.py <file_path> <new_file_path> <start_addr>")
         sys.exit(1)
 
     file_path = sys.argv[1]
     new_file_path = sys.argv[2]
+    start_addr = int(sys.argv[3],16)
 
     # ファイルにスタートアドレスなどのbsaveのヘッダを追加する
-    mkBsaveFile(file_path, new_file_path)
+    mkBsaveFile(file_path, new_file_path, start_addr)
